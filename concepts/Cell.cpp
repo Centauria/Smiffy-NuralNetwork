@@ -14,7 +14,7 @@ Cell::Cell(Activator func){
 	this->phi=func;
 }
 
-double Cell::update(){
+void Cell::update(){
 	double res=0;
 	for(int i=0;i<this->ancestors.size();i++){
 		res+=this->weights.at(i)*this->ancestors.at(i)->output;
@@ -22,7 +22,6 @@ double Cell::update(){
 	vector<double> args;
 	args.push_back(1.0);
 	this->output=phi(args,res+b);
-	return output;
 }
 
 void Cell::addAncestor(Cell* c,double w){

@@ -13,7 +13,7 @@ public:
 	
 	double output;
 	
-	double update();
+	void update();
 	void addAncestor(Cell*,double);
 	void setPhi(Activator);
 private:

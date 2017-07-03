@@ -48,6 +48,8 @@ int main(int argc, char** argv) {
 			Foo();
 		} else if(input == 'q') {
 			break;
+		} else if(input == 'c') {
+			cout << randn(0,1) <<endl;
 		} else if(input != '\n') {
 			cout << "Unknown command '" << input << "'! Ignoring...\n";
 		}
