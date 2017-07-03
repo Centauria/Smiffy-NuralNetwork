@@ -25,7 +25,7 @@ double Cell::update(){
 	return output;
 }
 
-double Cell::addAncestor(Cell* c,double w){
+void Cell::addAncestor(Cell* c,double w){
 	ancestors.push_back(c);
 	weights.push_back(w);
 }

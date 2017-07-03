@@ -14,7 +14,7 @@ public:
 	double output;
 	
 	double update();
-	double addAncestor(Cell*,double);
+	void addAncestor(Cell*,double);
 	void setPhi(Activator);
 private:
 	vector<Cell*> ancestors;
