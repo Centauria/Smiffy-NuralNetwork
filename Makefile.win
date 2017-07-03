@@ -1,17 +1,17 @@
 # Project: Smiffy
-# Makefile created by Dev-C++ 5.10
+# Makefile created by Dev-C++ 5.7.1
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o concepts/Cell.o concepts/Layer.o concepts/functions.o concepts/util.o
-LINKOBJ  = main.o concepts/Cell.o concepts/Layer.o concepts/functions.o concepts/util.o
-LIBS     = -L"E:/Program Files/Dev-Cpp/MinGW64/lib32" -L"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
-INCS     = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
-CXXINCS  = -I"E:/Program Files/Dev-Cpp/MinGW64/include" -I"E:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+OBJ      = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o
+LINKOBJ  = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o
+LIBS     = -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lgdi32 -g3
+INCS     = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
 BIN      = Smiffy.exe
-CXXFLAGS = $(CXXINCS) -m32
-CFLAGS   = $(INCS) -m32
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -24,17 +24,17 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.c
-	$(CPP) -c main.c -o main.o $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
 concepts/Cell.o: concepts/Cell.cpp
 	$(CPP) -c concepts/Cell.cpp -o concepts/Cell.o $(CXXFLAGS)
 
-concepts/Layer.o: concepts/Layer.cpp
-	$(CPP) -c concepts/Layer.cpp -o concepts/Layer.o $(CXXFLAGS)
-
 concepts/functions.o: concepts/functions.cpp
 	$(CPP) -c concepts/functions.cpp -o concepts/functions.o $(CXXFLAGS)
+
+concepts/Layer.o: concepts/Layer.cpp
+	$(CPP) -c concepts/Layer.cpp -o concepts/Layer.o $(CXXFLAGS)
 
 concepts/util.o: concepts/util.cpp
 	$(CPP) -c concepts/util.cpp -o concepts/util.o $(CXXFLAGS)
