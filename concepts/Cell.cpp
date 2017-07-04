@@ -3,21 +3,25 @@
 Cell::Cell(){
 	this->b=0.0;
 	this->phi=sigmoid;
+	this->update();
 }
 
 Cell::Cell(Activator func){
 	this->b=0.0;
 	this->phi=func;
+	this->update();
 }
 
 Cell::Cell(double b){
 	this->b=b;
 	this->phi=sigmoid;
+	this->update();
 }
 
 Cell::Cell(Activator func,double b){
 	this->b=b;
 	this->phi=func;
+	this->update();
 }
 
 void Cell::update(){

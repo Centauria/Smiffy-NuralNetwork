@@ -2,6 +2,7 @@
 #define __NETWORK__
 
 #include <vector>
+#include "Layer.h"
 
 using std::vector;
 
@@ -12,6 +13,8 @@ public:
 	
 	void addLayer(Layer*);
 	Layer* getLayer(int);
+	void update();
+	int size();
 private:
 	vector<Layer*> layers;
 };

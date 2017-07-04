@@ -7,10 +7,11 @@ using std::cout;
 using std::endl;
 
 void showVector(vector<double> numbers){
+	cout<<"{ ";
 	for(int i=0;i<numbers.size();i++){
 		cout<<numbers.at(i)<<", ";
 	}
-	cout<<endl;
+	cout<<" }"<<endl;
 }
 
 double randn01(){

@@ -18,6 +18,11 @@ public:
 	void update();
 	vector<double> output();
 	int size();
+	void plug(Layer*);
+	void connect(Layer*);
+	void setb(vector<double>);
+	vector<double> getb();
+	double getb(int);
 private:
 	vector<Cell*> cells;
 };

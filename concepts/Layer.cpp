@@ -49,3 +49,45 @@ vector<double> Layer::output(){
 int Layer::size(){
 	return this->cells.size();
 }
+
+void Layer::plug(Layer* layer){
+	if(this->cells.size()==layer->cells.size()){
+		for(int i=0;i<layer->cells.size();i++){
+			layer->getCell(i)->addAncestor(this->getCell(i),1.0);
+		}
+	}
+	else{
+		throw "Layer dimension mismatch.";
+	}
+}
+
+void Layer::connect(Layer* layer){
+	for(int i=0;i<layer->cells.size();i++){
+		for(int j=0;j<this->cells.size();j++){
+			layer->getCell(i)->addAncestor(this->getCell(j),0.0);
+		}
+	}
+}
+
+void Layer::setb(vector<double> b){
+	int asize=this->cells.size();
+	int bsize=b.size();
+	int size;
+	if(asize<bsize) size=asize;
+	else size=bsize;
+	for(int i=0;i<size;i++){
+		this->cells.at(i)->setb(b.at(i));
+	}
+}
+
+vector<double> Layer::getb(){
+	vector<double> res;
+	for(int i=0;i<this->cells.size();i++){
+		res.push_back(this->cells.at(i)->getb());
+	}
+	return res;
+}
+
+double Layer::getb(int index){
+	return this->cells.at(index)->getb();
+}
