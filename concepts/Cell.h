@@ -10,12 +10,16 @@ class Cell{
 public:
 	Cell();
 	Cell(Activator);
+	Cell(double);
+	Cell(Activator,double);
 	
 	double output;
 	
 	void update();
 	void addAncestor(Cell*,double);
 	void setPhi(Activator);
+	void setb(double);
+	double getb();
 private:
 	vector<Cell*> ancestors;
 	vector<double> weights;

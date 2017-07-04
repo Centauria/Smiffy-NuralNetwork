@@ -17,12 +17,12 @@ void Foo() {
 	}
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
-			layer2->getCell(i)->addAncestor(layer1->getCell(j),0.1*(i+j+1));
+			layer2->getCell(i)->addAncestor(layer1->getCell(j),randn01());
 		}
 	}
 	for(int i=0;i<2;i++){
 		for(int j=0;j<4;j++){
-			layer3->getCell(i)->addAncestor(layer2->getCell(j),0.1*(9-j-i));
+			layer3->getCell(i)->addAncestor(layer2->getCell(j),randn01());
 		}
 	}
 	layer0->update();

@@ -14,3 +14,8 @@ double one(vector<double> args,double in){
 double zero(vector<double> args,double in){
 	return 0.0;
 }
+
+double ReLU(vector<double> args,double in){
+	if(in>0.0) return in;
+	else return 0.0;
+}

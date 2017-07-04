@@ -1,16 +1,22 @@
 #include "Cell.h"
 
 Cell::Cell(){
-	this->ancestors.clear();
-	this->weights.clear();
 	this->b=0.0;
 	this->phi=sigmoid;
 }
 
 Cell::Cell(Activator func){
-	this->ancestors.clear();
-	this->weights.clear();
 	this->b=0.0;
+	this->phi=func;
+}
+
+Cell::Cell(double b){
+	this->b=b;
+	this->phi=sigmoid;
+}
+
+Cell::Cell(Activator func,double b){
+	this->b=b;
 	this->phi=func;
 }
 
@@ -31,4 +37,12 @@ void Cell::addAncestor(Cell* c,double w){
 
 void Cell::setPhi(Activator func){
 	this->phi=func;
+}
+
+void Cell::setb(double b){
+	this->b=b;
+}
+
+double Cell::getb(){
+	return this->b;
 }
