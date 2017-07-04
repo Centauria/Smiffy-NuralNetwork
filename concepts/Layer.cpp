@@ -5,6 +5,12 @@ Layer::Layer(){
 	
 }
 
+Layer::Layer(int n){
+	for(int i=0;i<n;i++){
+		this->cells.push_back(new Cell());
+	}
+}
+
 Layer::Layer(int n,Activator func){
 	for(int i=0;i<n;i++){
 		this->cells.push_back(new Cell(func));
@@ -38,4 +44,8 @@ vector<double> Layer::output(){
 		out.push_back(this->cells.at(i)->output);
 	}
 	return out;
+}
+
+int Layer::size(){
+	return this->cells.size();
 }

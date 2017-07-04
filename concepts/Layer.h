@@ -9,6 +9,7 @@ using std::vector;
 class Layer{
 public:
 	Layer();
+	Layer(int);
 	Layer(int,Activator);
 	~Layer();
 	
@@ -16,6 +17,7 @@ public:
 	Cell* getCell(int);
 	void update();
 	vector<double> output();
+	int size();
 private:
 	vector<Cell*> cells;
 };
