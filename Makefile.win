@@ -5,8 +5,8 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = Smiffy_private.res
-OBJ      = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o concepts/Network.o interface/DataInput.o $(RES)
-LINKOBJ  = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o concepts/Network.o interface/DataInput.o $(RES)
+OBJ      = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o concepts/Network.o $(RES)
+LINKOBJ  = main.o concepts/Cell.o concepts/functions.o concepts/Layer.o concepts/util.o concepts/Network.o $(RES)
 LIBS     = -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lgdi32 -g3
 INCS     = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
 CXXINCS  = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
@@ -42,9 +42,6 @@ concepts/util.o: concepts/util.cpp
 
 concepts/Network.o: concepts/Network.cpp
 	$(CPP) -c concepts/Network.cpp -o concepts/Network.o $(CXXFLAGS)
-
-interface/DataInput.o: interface/DataInput.cpp
-	$(CPP) -c interface/DataInput.cpp -o interface/DataInput.o $(CXXFLAGS)
 
 Smiffy_private.res: Smiffy_private.rc 
 	$(WINDRES) -i Smiffy_private.rc --input-format=rc -o Smiffy_private.res -O coff 

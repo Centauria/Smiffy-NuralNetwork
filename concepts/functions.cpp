@@ -28,7 +28,3 @@ double d_ReLU(vector<double> args,double in){
 	if(in>0.0) return 1.0;
 	else return 0.0;
 }
-
-double same(vector<double> args,double in){
-	return in;
-}
