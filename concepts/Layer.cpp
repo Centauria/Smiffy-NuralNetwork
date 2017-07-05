@@ -61,11 +61,28 @@ void Layer::plug(Layer* layer){
 	}
 }
 
+void Layer::unplug(Layer* layer){
+	if(this->cells.size()==layer->cells.size()){
+		for(int i=0;i<layer->cells.size();i++){
+			layer->getCell(i)->rmAncestor(this->getCell(i));
+		}
+	}
+	else{
+		throw "Layer dimension mismatch.";
+	}
+}
+
 void Layer::connect(Layer* layer){
 	for(int i=0;i<layer->cells.size();i++){
 		for(int j=0;j<this->cells.size();j++){
 			layer->getCell(i)->addAncestor(this->getCell(j),0.0);
 		}
+	}
+}
+
+void Layer::clean(){
+	for(int j=0;j<this->cells.size();j++){
+		this->getCell(j)->clean();
 	}
 }
 

@@ -17,9 +17,16 @@ public:
 	
 	void update();
 	void addAncestor(Cell*,double);
+	void rmAncestor(Cell*);
+	void clean();
 	void setPhi(Activator);
 	void setb(double);
 	double getb();
+	void setW(int,double);
+	double getW(int);
+	vector<double> getW();
+	Cell* getAncestor(int);
+	int size();
 private:
 	vector<Cell*> ancestors;
 	vector<double> weights;

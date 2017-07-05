@@ -73,3 +73,56 @@ vector<double> readVector(string s){
 	}
 	return res;
 }
+
+vector<double> operator+(const vector<double>& v1, const vector<double>& v2){
+	vector<double> res;
+	res.reserve(v1.size());
+	for(int i=0;i<v1.size();i++){
+		res.push_back(v1.at(i)+v2.at(i));
+	}
+	return res;
+}
+
+vector<double> operator-(const vector<double>& v1, const vector<double>& v2){
+	vector<double> res;
+	res.reserve(v1.size());
+	for(int i=0;i<v1.size();i++){
+		res.push_back(v1.at(i)-v2.at(i));
+	}
+	return res;
+}
+
+vector<double> operator*(const vector<double>& v1, const vector<double>& v2){
+	vector<double> res;
+	res.reserve(v1.size());
+	for(int i=0;i<v1.size();i++){
+		res.push_back(v1.at(i)*v2.at(i));
+	}
+	return res;
+}
+
+vector<double> operator/(const vector<double>& v1, const vector<double>& v2){
+	vector<double> res;
+	res.reserve(v1.size());
+	for(int i=0;i<v1.size();i++){
+		res.push_back(v1.at(i)/v2.at(i));
+	}
+	return res;
+}
+
+vector<double> nums(double num,int n){
+	vector<double> res;
+	res.reserve(n);
+	for(int i=0;i<n;i++){
+		res.push_back(num);
+	}
+	return res;
+}
+
+vector<double> ones(int n){
+	return nums(1,n);
+}
+
+vector<double> zeros(int n){
+	return nums(0,n);
+}

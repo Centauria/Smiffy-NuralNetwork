@@ -19,7 +19,9 @@ public:
 	vector<double> output();
 	int size();
 	void plug(Layer*);
+	void unplug(Layer*);
 	void connect(Layer*);
+	void clean();
 	void setb(vector<double>);
 	vector<double> getb();
 	double getb(int);
