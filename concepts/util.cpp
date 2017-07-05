@@ -1,10 +1,10 @@
 #include <iostream>
+#include <sstream>
 #include <stdlib.h>
 #include <math.h>
 #include "util.h"
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 void showVector(vector<double> numbers){
 	cout<<"{ ";
@@ -36,4 +36,40 @@ double randn01(){
 double randn(double avg,double var){
 	double r=randn01();
 	return r*var+avg;
+}
+
+vector<string> split(string &s,string &delim){
+	vector<string> elems;
+	size_t pos=0;
+	size_t len=s.length();
+	size_t delim_len=delim.length();
+	if(delim_len==0){
+		elems.push_back(s);
+		return elems;
+	}
+	while(pos<len){
+		int find_pos=s.find(delim,pos);
+		if(find_pos<0){
+			elems.push_back(s.substr(pos,len-pos));
+			break;
+		}
+		elems.push_back(s.substr(pos,find_pos-pos));
+		pos=find_pos+delim_len;
+	}
+	return elems;
+}
+
+vector<double> readVector(string s){
+	string comma(",");
+	vector<string> strs=split(s,comma);
+	vector<double> res;
+	stringstream ss;
+	double num;
+	for(string d:strs){
+		ss<<d;
+		ss>>num;
+		ss.clear();
+		res.push_back(num);
+	}
+	return res;
 }

@@ -23,7 +23,7 @@ public:
 	void setb(vector<double>);
 	vector<double> getb();
 	double getb(int);
-private:
+protected:
 	vector<Cell*> cells;
 };
 #endif
